@@ -10,15 +10,15 @@ public class LLConverter : MonoBehaviour
 
     private int amount = 50;
 
-    [SerializeField] [Range(0.0f, 360.0f)] private float angleX = 0.0f;
-    [SerializeField] [Range(0.0f, 360.0f)] private float angleY = 0.0f;
+    [SerializeField] [Range(-180.0f, 180.0f)] private float angleX = 0.0f;
+    [SerializeField] [Range(-180.0f, 180.0f)] private float angleY = 0.0f;
     private Vector3 direction = new Vector3(0, 0, 1);
     private Quaternion quat = new Quaternion();
     [SerializeField][Range(0.0f, 1.0f)]
     private float time = 0.0f;
     
-    private float prevAngleX = -1.0f;
-    private float prevAngleY = -1.0f;
+    private float prevAngleX = 360.0f;
+    private float prevAngleY = 360.0f;
         
     
     // Start is called before the first frame update
@@ -27,14 +27,16 @@ public class LLConverter : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             Vector3 dir = transform.forward;
-            Quaternion quaty = Quaternion.AngleAxis(Random.Range(0, 359), transform.up);
-            quaty *= Quaternion.AngleAxis(Random.Range(0, 359), transform.right);
+            Quaternion quaty = Quaternion.AngleAxis(Random.Range(-180, 180), transform.up);
+            quaty *= Quaternion.AngleAxis(Random.Range(-180, 180), transform.right);
 
             dir = quaty * dir;
             dir.Normalize();
-            Instantiate(asteroid, transform.position + dir * Random.Range(350, 1000), Quaternion.identity);
-            float size = Random.Range(0.5f, 20.0f);
-            asteroid.transform.localScale = new Vector3(size, size, size);
+            float distance = Random.Range(350, 1000);
+            var go = Instantiate(asteroid, transform.position + dir * distance, Quaternion.identity);
+            float size = GetSize(distance);
+            go.transform.localScale = new Vector3(size, size, size);
+            go.name = "ass" + i;
         }
         
         
@@ -55,12 +57,17 @@ public class LLConverter : MonoBehaviour
             prevAngleY = angleY;
         }
         
-        transform.position = Vector3.Lerp(new Vector3(0, 0, 0), new Vector3(0, 0, 0) + direction * 100, time);
+        transform.position = Vector3.Lerp(Vector3.zero, Vector3.zero + direction * 100, time);
     }
 
-    float GetSize(Vector3 pos)
+    float GetSize(float distance)
     {
-        return Random.Range(0.5f, 20.0f);
+        float minDist = 350.0f, maxdist = 1000.0f;
+
+        float normalised = (distance - minDist) / (maxdist - minDist);
+        float minMaxSize = 5, maxMaxSize = 30;
+        
+        return Random.Range(0.5f, Mathf.Lerp(minMaxSize, maxMaxSize, normalised));
     }
     
 }
