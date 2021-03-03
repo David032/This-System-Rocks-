@@ -7,8 +7,6 @@ public class Attractor : MonoBehaviour
     public Rigidbody rb;
     const float G = 667.4f;
 
-    public bool isAttractor;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

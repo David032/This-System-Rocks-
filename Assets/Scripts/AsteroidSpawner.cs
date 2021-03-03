@@ -8,7 +8,7 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void Awake()
     {
-        InvokeRepeating("SpawnAsteroid", 1, 5);
+        InvokeRepeating("SpawnAsteroid", 1, 15);
     }
 
     void SpawnAsteroid() 
