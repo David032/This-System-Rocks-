@@ -8,7 +8,7 @@ public class LLConverter : MonoBehaviour
     [SerializeField]
     private GameObject asteroid;
 
-    private int amount = 100;
+    private int amount = 50;
 
     [SerializeField] [Range(0.0f, 360.0f)] private float angleX = 0.0f;
     [SerializeField] [Range(0.0f, 360.0f)] private float angleY = 0.0f;
@@ -27,13 +27,14 @@ public class LLConverter : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             Vector3 dir = transform.forward;
-            Quaternion quaty = Quaternion.AngleAxis(Random.Range(0, 360), transform.up);
-            quaty *= Quaternion.AngleAxis(Random.Range(0, 360), transform.right);
+            Quaternion quaty = Quaternion.AngleAxis(Random.Range(0, 359), transform.up);
+            quaty *= Quaternion.AngleAxis(Random.Range(0, 359), transform.right);
 
             dir = quaty * dir;
             dir.Normalize();
-            Instantiate(asteroid, transform.position + dir * Random.Range(350, 600), Quaternion.identity);
-            asteroid.transform.localScale = new Vector3(4, 4, 4);
+            Instantiate(asteroid, transform.position + dir * Random.Range(350, 1000), Quaternion.identity);
+            float size = Random.Range(0.5f, 20.0f);
+            asteroid.transform.localScale = new Vector3(size, size, size);
         }
         
         
@@ -56,4 +57,10 @@ public class LLConverter : MonoBehaviour
         
         transform.position = Vector3.Lerp(new Vector3(0, 0, 0), new Vector3(0, 0, 0) + direction * 100, time);
     }
+
+    float GetSize(Vector3 pos)
+    {
+        return Random.Range(0.5f, 20.0f);
+    }
+    
 }
