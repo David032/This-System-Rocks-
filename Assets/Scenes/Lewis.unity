@@ -367,6 +367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Earth_V0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed32fa6fef881a14fa8690e3ba9eb88f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed32fa6fef881a14fa8690e3ba9eb88f, type: 3}
 --- !u!1 &2131279302 stripped
@@ -403,3 +407,17 @@ MonoBehaviour:
   angleX: 0
   angleY: 0
   time: 0
+--- !u!114 &2131279305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131279302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6bcccd72930114e91fd40421437963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filename: worldcities.csv
+  minPopulation: 30000
