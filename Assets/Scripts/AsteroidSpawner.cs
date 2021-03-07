@@ -9,7 +9,6 @@ public struct Data
     public string Name;
     public string CloseApproach;
     public string NominalDistance;
-    public string MinimumDistance;
     public string RelativeVel;
     public string VelInfinite;
     public string Magnitude;
@@ -74,7 +73,7 @@ public class AsteroidSpawner : MonoBehaviour
 
             var dataValues = dataString.Split(',');
             print(dataValues[0] + " " + dataValues[1] + " " + dataValues[2] + " " + dataValues[3] 
-                + " " + dataValues[4] + " " + dataValues[5] + " " + dataValues[6] + " " + dataValues[7]);
+                + " " + dataValues[4] + " " + dataValues[5] + " " + dataValues[6]);
 
             i++;
             if (i <= 2)
@@ -83,11 +82,10 @@ public class AsteroidSpawner : MonoBehaviour
             entry.Name = dataValues[0];
             entry.CloseApproach = dataValues[1];
             entry.NominalDistance = dataValues[2];
-            entry.MinimumDistance = dataValues[3];
-            entry.RelativeVel = dataValues[4];
-            entry.VelInfinite = dataValues[5];
-            entry.Magnitude = dataValues[6];
-            entry.EstimatedDiameter = dataValues[7];
+            entry.RelativeVel = dataValues[3];
+            entry.VelInfinite = dataValues[4];
+            entry.Magnitude = dataValues[5];
+            entry.EstimatedDiameter = dataValues[6];
             PotentialRocks.Add(entry);
         }
     }
