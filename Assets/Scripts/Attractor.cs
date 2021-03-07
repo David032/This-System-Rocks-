@@ -17,7 +17,7 @@ public class Attractor : MonoBehaviour
         Attractor[] attractors = FindObjectsOfType<Attractor>();
         foreach (Attractor item in attractors)
         {
-            if (item != this)
+            if (item!= this)
             {
                 Attract(item);
             }

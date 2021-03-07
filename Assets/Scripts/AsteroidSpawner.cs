@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public struct Data
 {
@@ -34,7 +35,8 @@ public class AsteroidSpawner : MonoBehaviour
         Data selectedData = PotentialRocks[randomSelection];
 
         GameObject newRock = Instantiate(Asteroid, transform.position, new Quaternion());
-        AsteroidData rockData = GetComponent<AsteroidData>();
+        newRock.AddComponent<AsteroidData>();
+        AsteroidData rockData = newRock.GetComponent<AsteroidData>();
         float randX = Random.Range(0f, 1000f);
         float randY = Random.Range(0f, 1000f);
         float randZ = Random.Range(0f, 1000f);
@@ -45,6 +47,7 @@ public class AsteroidSpawner : MonoBehaviour
         rockData.velocity = selectedData.RelativeVel;
 
         newRock.GetComponent<Rigidbody>().AddForce(randX,randY,randZ);
+        newRock.AddComponent<Asteroid>();
         PotentialRocks.Remove(selectedData);
     }
 
@@ -58,6 +61,7 @@ public class AsteroidSpawner : MonoBehaviour
         StreamReader streamreader = new StreamReader(filepath);
 
         bool endOfFile = false;
+        int i = 0;
         while (!endOfFile)
         {
             Data entry = new Data();
@@ -72,6 +76,9 @@ public class AsteroidSpawner : MonoBehaviour
             print(dataValues[0] + " " + dataValues[1] + " " + dataValues[2] + " " + dataValues[3] 
                 + " " + dataValues[4] + " " + dataValues[5] + " " + dataValues[6] + " " + dataValues[7]);
 
+            i++;
+            if (i <= 2)
+                continue;
 
             entry.Name = dataValues[0];
             entry.CloseApproach = dataValues[1];
@@ -81,6 +88,7 @@ public class AsteroidSpawner : MonoBehaviour
             entry.VelInfinite = dataValues[5];
             entry.Magnitude = dataValues[6];
             entry.EstimatedDiameter = dataValues[7];
+            PotentialRocks.Add(entry);
         }
     }
 }
