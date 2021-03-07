@@ -49,7 +49,7 @@ public class AsteroidSpawner : MonoBehaviour
         float randX = Random.Range(0f, 1000f);
         float randY = Random.Range(0f, 1000f);
         float randZ = Random.Range(0f, 1000f);
-        print(randX + " " + randY + " " + randZ);
+        //print(randX + " " + randY + " " + randZ);
 
         rockData.scientificName = selectedData.Name;
         rockData.distanceFromEarth = selectedData.NominalDistance;
