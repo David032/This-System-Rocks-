@@ -69,6 +69,10 @@ public class AsteroidSpawner : MonoBehaviour
             }
 
             var dataValues = dataString.Split(',');
+            print(dataValues[0] + " " + dataValues[1] + " " + dataValues[2] + " " + dataValues[3] 
+                + " " + dataValues[4] + " " + dataValues[5] + " " + dataValues[6] + " " + dataValues[7]);
+
+
             entry.Name = dataValues[0];
             entry.CloseApproach = dataValues[1];
             entry.NominalDistance = dataValues[2];
