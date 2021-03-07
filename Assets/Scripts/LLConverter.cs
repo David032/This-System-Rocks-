@@ -16,6 +16,8 @@ public class LLConverter : MonoBehaviour
     private Quaternion quat = new Quaternion();
     [SerializeField][Range(0.0f, 1.0f)]
     private float time = 0.0f;
+    [SerializeField]
+    float minMaxSize = 5, maxMaxSize = 30;
     
     private float prevAngleX = 360.0f;
     private float prevAngleY = 360.0f;
@@ -65,8 +67,7 @@ public class LLConverter : MonoBehaviour
         float minDist = 350.0f, maxdist = 1000.0f;
 
         float normalised = (distance - minDist) / (maxdist - minDist);
-        float minMaxSize = 5, maxMaxSize = 30;
-        
+
         return Random.Range(0.5f, Mathf.Lerp(minMaxSize, maxMaxSize, normalised));
     }
     

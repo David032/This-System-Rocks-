@@ -52,14 +52,18 @@ public class CityLocations : MonoBehaviour
     }
 
     private List<CityData> cities = new List<CityData>();
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         if (filename.Length <= 0)
             return;
 
         GetCityData();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
     }
 
     float GetDistance(float long1, float lat1, float long2, float lat2)
