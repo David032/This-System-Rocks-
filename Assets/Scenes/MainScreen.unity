@@ -265,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3882766182058659580, guid: 47766ff93db21014d8c0436323353b1c, type: 3}
       propertyPath: m_Mass
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3882766182058659580, guid: 47766ff93db21014d8c0436323353b1c, type: 3}
       propertyPath: m_UseGravity
@@ -796,6 +796,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1984790266 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2787092358978574378, guid: aaabeb44f963bec428dad37739241fcc, type: 3}
+  m_PrefabInstance: {fileID: 2787092358143076048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1151388029247252388
 Transform:
   m_ObjectHideFlags: 0
@@ -860,8 +865,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2787092358978574376, guid: aaabeb44f963bec428dad37739241fcc, type: 3}
       propertyPath: m_Name
-      value: Rocket
+      value: Missile
       objectReference: {fileID: 0}
+    - target: {fileID: 2787092358978574377, guid: aaabeb44f963bec428dad37739241fcc, type: 3}
+      propertyPath: MissileRB
+      value: 
+      objectReference: {fileID: 1984790266}
     - target: {fileID: 2787092358978574377, guid: aaabeb44f963bec428dad37739241fcc, type: 3}
       propertyPath: turnSpeed
       value: 2.5
@@ -870,6 +879,14 @@ PrefabInstance:
       propertyPath: RocketTarget
       value: 
       objectReference: {fileID: 701613387}
+    - target: {fileID: 2787092358978574377, guid: aaabeb44f963bec428dad37739241fcc, type: 3}
+      propertyPath: MissileTarget
+      value: 
+      objectReference: {fileID: 701613387}
+    - target: {fileID: 2787092358978574377, guid: aaabeb44f963bec428dad37739241fcc, type: 3}
+      propertyPath: missileFlySpeed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2787092358978574379, guid: aaabeb44f963bec428dad37739241fcc, type: 3}
       propertyPath: m_RootOrder
       value: 10
