@@ -18,6 +18,7 @@ public struct Data
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject Asteroid;
+    [SerializeField] private GameObject earth;
     public List<Data> PotentialRocks = new List<Data>();
     [SerializeField] private string filename;
 
@@ -34,6 +35,10 @@ public class AsteroidSpawner : MonoBehaviour
         Data selectedData = PotentialRocks[randomSelection];
 
         GameObject newRock = Instantiate(Asteroid, transform.position, new Quaternion());
+        var outlineData = newRock.GetComponent<OutlineDistanceFinder>();
+        outlineData.endPoint = earth;
+        
+        
         newRock.AddComponent<AsteroidData>();
         AsteroidData rockData = newRock.GetComponent<AsteroidData>();
         float randX = Random.Range(0f, 1000f);
