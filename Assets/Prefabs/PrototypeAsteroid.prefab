@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  isAttractor: 0
 --- !u!114 &2612906423125320633
 MonoBehaviour:
   m_ObjectHideFlags: 0
