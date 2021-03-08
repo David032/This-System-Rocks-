@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HomingProjectiles : MonoBehaviour
 {
-    public Transform RocketTarget;
+    //public Transform RocketTarget;
+    public GameObject RocketTarget;
     public Rigidbody RocketRB;
 
     public float turnSpeed = 1f;
@@ -18,6 +19,8 @@ public class HomingProjectiles : MonoBehaviour
         if (!RocketTarget)
          Debug.Log("Please Set the Target");
 
+        RocketTarget = GameObject.FindGameObjectWithTag("target");
+
         rocketLocalTrans = GetComponent<Transform>();
     }
 
@@ -27,7 +30,7 @@ public class HomingProjectiles : MonoBehaviour
             return;
             RocketRB.velocity = rocketLocalTrans.forward * rocketFlySpeed;
 
-            var rocketTargetRotation = Quaternion.LookRotation(RocketTarget.position - rocketLocalTrans.position);
+            var rocketTargetRotation = Quaternion.LookRotation(RocketTarget.transform.position - rocketLocalTrans.position);
 
             RocketRB.MoveRotation(Quaternion.RotateTowards(rocketLocalTrans.rotation, rocketTargetRotation, turnSpeed));
 
