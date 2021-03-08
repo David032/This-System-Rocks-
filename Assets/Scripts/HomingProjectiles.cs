@@ -21,17 +21,26 @@ public class HomingProjectiles : MonoBehaviour
         rocketLocalTrans = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Fire()
     {
         if (!RocketRB)
             return;
+            RocketRB.velocity = rocketLocalTrans.forward * rocketFlySpeed;
 
-        RocketRB.velocity = rocketLocalTrans.forward * rocketFlySpeed;
+            var rocketTargetRotation = Quaternion.LookRotation(RocketTarget.position - rocketLocalTrans.position);
 
-        var rocketTargetRotation = Quaternion.LookRotation(RocketTarget.position - rocketLocalTrans.position);
+            RocketRB.MoveRotation(Quaternion.RotateTowards(rocketLocalTrans.rotation, rocketTargetRotation, turnSpeed));
 
-        RocketRB.MoveRotation(Quaternion.RotateTowards(rocketLocalTrans.rotation, rocketTargetRotation, turnSpeed));
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Fire();
+        }
+
     }
 
     private void OnCollisionEnter(Collision col) 
