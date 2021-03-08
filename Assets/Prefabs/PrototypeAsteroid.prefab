@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2612906423125320633}
   m_Layer: 0
   m_Name: PrototypeAsteroid
-  m_TagString: Untagged
+  m_TagString: target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  isAttractor: 0
 --- !u!114 &2612906423125320633
 MonoBehaviour:
   m_ObjectHideFlags: 0
