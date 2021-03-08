@@ -13,6 +13,6 @@ public class MissileSpawner : MonoBehaviour
 
     void SpawnMissile()
     {
-        GameObject newRocket = Instantiate(Rocket, transform.position, Quaternion.identity);
+        GameObject newMissile = Instantiate(Rocket, transform.position, Quaternion.identity);
     }
 }

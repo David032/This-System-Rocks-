@@ -5,34 +5,34 @@ using UnityEngine;
 public class HomingProjectiles : MonoBehaviour
 {
     //public Transform RocketTarget;
-    public GameObject RocketTarget;
-    public Rigidbody RocketRB;
+    public GameObject MissileTarget;
+    public Rigidbody MissileRB;
 
     public float turnSpeed = 1f;
-    public float rocketFlySpeed = 10f;
+    public float missileFlySpeed = 10f;
 
     private Transform rocketLocalTrans;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (!RocketTarget)
+        if (!MissileTarget)
          Debug.Log("Please Set the Target");
 
-        RocketTarget = GameObject.FindGameObjectWithTag("target");
+        MissileTarget = GameObject.FindGameObjectWithTag("target");
 
         rocketLocalTrans = GetComponent<Transform>();
     }
 
     void Fire()
     {
-        if (!RocketRB)
+        if (!MissileRB)
             return;
-            RocketRB.velocity = rocketLocalTrans.forward * rocketFlySpeed;
+        MissileRB.velocity = rocketLocalTrans.forward * missileFlySpeed;
 
-            var rocketTargetRotation = Quaternion.LookRotation(RocketTarget.transform.position - rocketLocalTrans.position);
+            var missileTargetRotation = Quaternion.LookRotation(MissileTarget.transform.position - rocketLocalTrans.position);
 
-            RocketRB.MoveRotation(Quaternion.RotateTowards(rocketLocalTrans.rotation, rocketTargetRotation, turnSpeed));
+        MissileRB.MoveRotation(Quaternion.RotateTowards(rocketLocalTrans.rotation, missileTargetRotation, turnSpeed));
 
     }
 
