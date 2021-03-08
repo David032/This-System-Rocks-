@@ -11,7 +11,7 @@ public class HomingProjectiles : MonoBehaviour
     public float turnSpeed = 1f;
     public float missileFlySpeed = 10f;
 
-    private Transform rocketLocalTrans;
+    private Transform MissileLocalTrans;
 
     // Start is called before the first frame update
     void Start()
@@ -21,18 +21,18 @@ public class HomingProjectiles : MonoBehaviour
 
         MissileTarget = GameObject.FindGameObjectWithTag("target");
 
-        rocketLocalTrans = GetComponent<Transform>();
+        MissileLocalTrans = GetComponent<Transform>();
     }
 
     void Fire()
     {
         if (!MissileRB)
             return;
-        MissileRB.velocity = rocketLocalTrans.forward * missileFlySpeed;
+        MissileRB.velocity = MissileLocalTrans.forward * missileFlySpeed;
 
-            var missileTargetRotation = Quaternion.LookRotation(MissileTarget.transform.position - rocketLocalTrans.position);
+            var missileTargetRotation = Quaternion.LookRotation(MissileTarget.transform.position - MissileLocalTrans.position);
 
-        MissileRB.MoveRotation(Quaternion.RotateTowards(rocketLocalTrans.rotation, missileTargetRotation, turnSpeed));
+        MissileRB.MoveRotation(Quaternion.RotateTowards(MissileLocalTrans.rotation, missileTargetRotation, turnSpeed));
 
     }
 

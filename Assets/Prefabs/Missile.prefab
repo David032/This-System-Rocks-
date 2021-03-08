@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2787092358978574378}
   - component: {fileID: 2787092358978574377}
   m_Layer: 0
-  m_Name: Rocket
+  m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fed2899324ee3f4bbe5b3a8b7889abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RocketTarget: {fileID: 395693587880950635, guid: 47766ff93db21014d8c0436323353b1c, type: 3}
-  RocketRB: {fileID: 2787092358978574378}
-  turnSpeed: 2
-  rocketFlySpeed: 25
+  MissileTarget: {fileID: 395693587880950635, guid: 47766ff93db21014d8c0436323353b1c, type: 3}
+  MissileRB: {fileID: 2787092358978574378}
+  turnSpeed: 2.5
+  missileFlySpeed: 25
