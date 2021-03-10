@@ -31,7 +31,7 @@ public class AsteroidSpawner : MonoBehaviour
     void SpawnAsteroid() 
     {
         //Should be a better way to do this
-        int randomSelection = Random.Range(0, PotentialRocks.Count);
+        int randomSelection = Random.Range(0, PotentialRocks.Count - 1);
         Data selectedData = PotentialRocks[randomSelection];
 
         GameObject newRock = Instantiate(Asteroid, transform.position, new Quaternion());

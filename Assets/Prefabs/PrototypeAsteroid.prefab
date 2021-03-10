@@ -157,10 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ce9c02314328b45935d04b60fe2bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 0}
+  endPoint: {fileID: 919132149155446097, guid: ed32fa6fef881a14fa8690e3ba9eb88f, type: 3}
   colourAtStart: {r: 0, g: 1, b: 0.27710438, a: 1}
   colourAtEnd: {r: 1, g: 0, b: 0.062675476, a: 1}
   maxDistMarker: {fileID: 0}
+  minDist: 10
   maxDist: 150
 --- !u!114 &7090772397768836595
 MonoBehaviour:
@@ -175,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineColor: {r: 1, g: 0.5424528, b: 0.5424528, a: 1}
   outlineWidth: 7.5
   precomputeOutline: 0
   bakeKeys: []
