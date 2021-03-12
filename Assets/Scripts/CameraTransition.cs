@@ -7,18 +7,25 @@ using UnityEngine;
 
 public class CameraTransition : MonoBehaviour
 {
-    [SerializeField] private Camera mainCamera;
-    [SerializeField] private Camera backupCamera = new Camera();
-    [SerializeField] private List<Camera> cameras = new List<Camera>();
-    [SerializeField] private Camera activeCamera;
+    [SerializeField] 
+    private Camera mainCamera;
+    [SerializeField] 
+    private Camera backupCamera = new Camera();
+    [SerializeField] 
+    private List<Camera> cameras = new List<Camera>();
+    [SerializeField] 
+    
+    private Camera activeCamera;
     private bool swappingCameras;
     private Camera selectedCamera;
-    [SerializeField] private int cameraIndex = 0;
+    
+    [SerializeField] 
+    private int cameraIndex = 0;
+    
     private float timescale = 0f;
     private GameObject earth;
     private Vector3 stopPoint;
     private float multiplier = 0.2f;
-
     void Start()
     {
         earth = GameObject.FindWithTag("Earth");

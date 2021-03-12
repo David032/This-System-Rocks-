@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using Vector3 = UnityEngine.Vector3;
 
-public class OutlineDistanceFinder : MonoBehaviour
+public class OutlineDistanceFinder : MonoBehaviour 
 {
     private Outline ol;
     private float midPoint;
