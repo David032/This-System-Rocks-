@@ -18,7 +18,7 @@ public class Attractor : MonoBehaviour
 
         foreach (Attractor item in attractors)
         {
-            if (item != this)
+            if (item!= this)
             {
                 Attract(item);
             }

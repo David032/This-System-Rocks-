@@ -7,8 +7,8 @@ using System;
 
 public class CityLocations : MonoBehaviour
 {
-    [SerializeField] private string filename;
-    [SerializeField] private uint minPopulation;
+    [SerializeField] private string filename = "worldcities.csv";
+    [SerializeField] private uint minPopulation = 10000;
 
     private const float LAT_TO_KM = 110.574f;
     private const double R = 6371e3;
@@ -182,6 +182,19 @@ public class CityLocations : MonoBehaviour
         
     }
 
+    public CityData GetClosestCity(Vector3 point)
+    {
+        var vec2 = GetLongLat(point);
+        return GetClosestCity(vec2.y, vec2.x);
+        
+        // List<CityData> c1 = new List<CityData>();
+        // List<CityData> c2 = new List<CityData>();
+        // c1.AddRange(cities.GetRange(0, cities.Count / 2));
+        // c2.AddRange(cities.GetRange(cities.Count / 2, cities.Count / 2));
+        
+        
+    }
+    
     public CityData GetClosestCity(float latitude, float longitude)
     {
 
@@ -227,5 +240,29 @@ public class CityLocations : MonoBehaviour
         return CheckList(c2, longitude, latitude);
     }
 
+    public Vector2 GetLongLat(Vector3 point)
+    {
+        Vector3 dirVector = point - gameObject.transform.position;
+        Vector2 v1 = new Vector2(gameObject.transform.forward.x, gameObject.transform.forward.z);
+        Vector2 v2 = new Vector2(dirVector.x, dirVector.z);
+        
+        //Debug.DrawRay(gameObject.transform.position, dirVector  * 20, Color.blue);
+            
+        float xAngle = Mathf.Acos(Vector2.Dot(v1.normalized, v2.normalized)) * Mathf.Rad2Deg;
+            
+        v1 = new Vector2(gameObject.transform.forward.y, gameObject.transform.forward.z);
+        v2 = new Vector2(dirVector.y, dirVector.z);
+        float yAngle = Mathf.Acos(Vector2.Dot(v1.normalized, v2.normalized)) * Mathf.Rad2Deg;
+        
+        var loc = gameObject.transform.rotation * point;
+        if (loc.y < gameObject.transform.position.y)
+            yAngle *= -1.0f;
+            
+        if (loc.x > gameObject.transform.position.x)
+            xAngle *= -1.0f;
+        
+        return new Vector2(xAngle, yAngle);
+    }
+    
 
 }

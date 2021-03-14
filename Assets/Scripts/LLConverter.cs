@@ -39,6 +39,8 @@ public class LLConverter : MonoBehaviour
             float size = GetSize(distance);
             go.transform.localScale = new Vector3(size, size, size);
             go.name = "ass" + i;
+            go.AddComponent<HighlightObject>();
+            go.AddComponent<SphereCollider>();
         }
         
         
