@@ -38,8 +38,8 @@ public abstract class UIScreenController<TProps> : MonoBehaviour, IUIScreenContr
             }
             else
             {
-                Debug.LogError("Properties passed are wrong type. (" + props.GetType() + 
-                               " Instead of (" +Properties.GetType());
+                //Debug.LogError("Properties passed are wrong type. (" + props.GetType() + 
+                //               " Instead of (" +Properties.GetType());
                 return;
             }
         }
