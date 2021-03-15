@@ -8,6 +8,8 @@ public class Asteroid : MonoBehaviour
     [HideInInspector]
     public Vector3 forceDir;
     Vector3 startPos;
+
+    private bool targeted = false;
     
     // Start is called before the first frame update
     void Start()
@@ -40,7 +42,11 @@ public class Asteroid : MonoBehaviour
     
     void OnMouseDown()
     {
-        Locator.Instance.MissileSpawner.SpawnMissile(gameObject);
+        if(!targeted)
+            Locator.Instance.MissileManager.FireMissle(gameObject);
+
+        targeted = true;
+        Debug.Log("Targeted");
     }
     
 }

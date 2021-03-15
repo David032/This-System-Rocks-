@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,8 @@ public class HomingProjectiles : MonoBehaviour
 
     public float turnSpeed = 1f;
     public float missileFlySpeed = 10f;
-    
+
+    private float iTime = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,12 @@ public class HomingProjectiles : MonoBehaviour
         //MissileTarget = GameObject.FindGameObjectWithTag("target");
 
         //MissileLocalTrans = GetComponent<Transform>();
+    }
+
+    private void Update()
+    {
+        if(iTime > 0.0f)
+            iTime -= Time.deltaTime;
     }
 
     void Fire()
@@ -52,8 +60,10 @@ public class HomingProjectiles : MonoBehaviour
         Fire();
     }
 
-    private void OnCollisionEnter(Collision col) 
+    private void OnCollisionEnter(Collision col)
     {
+        if (iTime > 0.0f) return;
+        
         if (col.gameObject.tag == "Asteroid")
         {
             var activeasteroids = Locator.Instance.AsteroidSpawner.ActiveAsteroids;

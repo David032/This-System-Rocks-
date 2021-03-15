@@ -21,11 +21,11 @@ public class Locator : MonoBehaviour
     }
 
     [SerializeField]
-    private MissileSpawner missileSpawner;
+    private MissileManager missileManager;
 
-    public MissileSpawner MissileSpawner
+    public MissileManager MissileManager
     {
-        get => missileSpawner;
+        get => missileManager;
     }
     
     [SerializeField]

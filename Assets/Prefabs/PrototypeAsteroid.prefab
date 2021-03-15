@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 0.5424528, b: 0.5424528, a: 1}
-  outlineWidth: 7.5
+  outlineWidth: 3
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb666f16a6ffb354a9b98d9904ac7c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forceDir: {x: 0, y: 0, z: 0}
 --- !u!114 &3218832126931284597
 MonoBehaviour:
   m_ObjectHideFlags: 0
