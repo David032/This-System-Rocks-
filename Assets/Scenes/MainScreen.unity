@@ -502,6 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missileSpawner: {fileID: 1577544487}
+  asteroidSpawner: {fileID: 641487550}
 --- !u!4 &460406441
 Transform:
   m_ObjectHideFlags: 0
