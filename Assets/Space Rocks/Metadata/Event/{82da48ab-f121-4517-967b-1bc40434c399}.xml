@@ -5,7 +5,7 @@
 			<value>Alert</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{12e42539-393d-4478-9682-765f4e25172f}</destination>
@@ -56,14 +56,28 @@
 			<destination>{6bb2b7a5-c5ee-4fa7-a808-e5fa1fb99ddb}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{230acb36-dfb3-4744-9538-ba82d01529ef}" />
+	<object class="EventAutomatableProperties" id="{230acb36-dfb3-4744-9538-ba82d01529ef}">
+		<property name="maxVoices">
+			<value>5</value>
+		</property>
+		<property name="triggerCooldown">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{195848f3-d69d-48a3-bace-5f9d3f8284c4}" />
 	<object class="GroupTrack" id="{b276e00e-a6dc-4975-b592-37a01155d30c}">
+		<relationship name="modules">
+			<destination>{1bc9ea7e-415a-4a81-b63c-198a6d8ac47d}</destination>
+		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{3c1113f5-2b55-4b7d-b45c-0a631d6fbf97}</destination>
 		</relationship>
 	</object>
-	<object class="Timeline" id="{12351010-eb1a-4335-b71c-06febe5329bf}" />
+	<object class="Timeline" id="{12351010-eb1a-4335-b71c-06febe5329bf}">
+		<relationship name="modules">
+			<destination>{1bc9ea7e-415a-4a81-b63c-198a6d8ac47d}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerMaster" id="{2fbe7c79-ba44-4189-b45b-b57388fd4cd1}">
 		<relationship name="effectChain">
 			<destination>{ecba663d-c81e-4c83-b144-6f34f5811855}</destination>
@@ -81,6 +95,11 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{dfd08ed7-bd8a-445b-9d1e-9c3131aa478a}" />
+	<object class="SingleSound" id="{1bc9ea7e-415a-4a81-b63c-198a6d8ac47d}">
+		<relationship name="audioFile">
+			<destination>{ca33b816-eab5-4a80-8a82-3ca977139a5f}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerGroup" id="{3c1113f5-2b55-4b7d-b45c-0a631d6fbf97}">
 		<property name="name">
 			<value>Audio 1</value>
