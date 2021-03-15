@@ -61,6 +61,12 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{e9c307f1-8a4d-41ce-a995-aa34b3f17930}">
+		<property name="maxVoices">
+			<value>5</value>
+		</property>
+		<property name="voiceStealing">
+			<value>4</value>
+		</property>
 		<property name="dopplerEnabled">
 			<value>true</value>
 		</property>
@@ -219,7 +225,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{3d892d9a-e0d0-4e0a-aab4-b62db1d58109}" />
 	<object class="MixerBusFader" id="{3054dc13-6836-4a8d-95fc-05a36bb1fd3e}" />
-	<object class="SpatialiserEffect" id="{250682f1-f8fa-4757-9b27-3366b0fd4d26}" />
+	<object class="SpatialiserEffect" id="{250682f1-f8fa-4757-9b27-3366b0fd4d26}">
+		<property name="minimumDistance">
+			<value>10</value>
+		</property>
+		<property name="maximumDistance">
+			<value>200</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{7e17a08d-d82c-42d2-ac36-0c0971a4120d}" />
 	<object class="ThreeEQEffect" id="{fe565b15-5037-4761-be50-06d4bc3c4738}">
 		<property name="midGain">
