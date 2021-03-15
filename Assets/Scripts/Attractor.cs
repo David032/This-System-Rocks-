@@ -34,7 +34,7 @@ public class Attractor : MonoBehaviour
 
         float forceMagnitude = G * (rb.mass * rbToAttract.mass) / Mathf.Pow(distance, 2);
         Vector3 force = direction.normalized * forceMagnitude;
-       // print("Attracting " + objToAttract.name + " towards " + this.gameObject.name + " with a force of " + force);
+        //print("Attracting " + objToAttract.name + " towards " + this.gameObject.name + " with a force of " + force);
         rbToAttract.AddForce(force);
 
     }

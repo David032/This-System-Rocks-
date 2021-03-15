@@ -14,7 +14,7 @@ public struct Data
     public string Magnitude;
     public string EstimatedDiameter;
 
-    public Data(string v1, string v2, string v3, string v4, string v5, string v6, string v7) : this()
+    public Data(string v1, string v2, string v3, string v4, string v5, string v6, string v7)
     {
         Name = v1;
         CloseApproach = v2;
@@ -29,12 +29,12 @@ public struct Data
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject Asteroid;
+    [SerializeField] private GameObject earth;
     public List<Data> PotentialRocks = new List<Data>();
     [SerializeField] private string filename;
 
     private void Awake()
     {
-        PotentialRocks.Add(new Data());
         FetchData();
         InvokeRepeating("SpawnAsteroid", 1, 5);
     }
@@ -42,16 +42,18 @@ public class AsteroidSpawner : MonoBehaviour
     void SpawnAsteroid() 
     {
         //Should be a better way to do this
-        int randomSelection = Random.Range(0, PotentialRocks.Count);
+        int randomSelection = Random.Range(0, PotentialRocks.Count - 1);
         Data selectedData = PotentialRocks[randomSelection];
+        print(selectedData.Name);
 
         GameObject newRock = Instantiate(Asteroid, transform.position, new Quaternion());
-        newRock.AddComponent<AsteroidData>();
+        var outlineData = newRock.GetComponent<OutlineDistanceFinder>();
+        outlineData.endPoint = earth;
+        
         AsteroidData rockData = newRock.GetComponent<AsteroidData>();
         float randX = Random.Range(0f, 1000f);
         float randY = Random.Range(0f, 1000f);
         float randZ = Random.Range(0f, 1000f);
-        //print(randX + " " + randY + " " + randZ);
 
         rockData.scientificName = selectedData.Name;
         rockData.distanceFromEarth = selectedData.NominalDistance;
@@ -84,8 +86,7 @@ public class AsteroidSpawner : MonoBehaviour
             }
 
             var dataValues = dataString.Split(',');
-            // print(dataValues[0] + " " + dataValues[1] + " " + dataValues[2] + " " + dataValues[3] 
-            //     + " " + dataValues[4] + " " + dataValues[5] + " " + dataValues[6]);
+
             Data entry = new Data(dataValues[0],dataValues[1], dataValues[2],dataValues[3],dataValues[4],dataValues[5],dataValues[6]);
 
             i++;
