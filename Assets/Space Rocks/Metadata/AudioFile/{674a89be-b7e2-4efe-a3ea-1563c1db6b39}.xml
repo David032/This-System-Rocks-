@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{674a89be-b7e2-4efe-a3ea-1563c1db6b39}">
+		<property name="assetPath">
+			<value>Aircraft, Rocket, Small, Take Off, Medium 01 SND14129.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>19.575354166666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6c8c6b77-66a9-4d27-bd77-3288fccee217}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -42,7 +42,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 0
+  Length: 1500
 --- !u!114 &-6547133695380753818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,12 +122,12 @@ MonoBehaviour:
   guid: fcb83e73212f7d49a35a9bf03ddbacee
   Banks:
   - {fileID: 9133926986663599165}
-  IsStream: 1
+  IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters: []
-  MinDistance: 1000
-  MaxDistance: 3600
+  MinDistance: 0
+  MaxDistance: 900
   Length: 274909
 --- !u!114 &-603589588466683750
 MonoBehaviour:
@@ -145,14 +145,14 @@ MonoBehaviour:
   guid: 52a9177752ff3347907520afaea98ca3
   Banks:
   - {fileID: 9133926986663599165}
-  IsStream: 0
+  IsStream: 1
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters:
-  - {fileID: -8174364556454168782}
+  - {fileID: 2269202487175421187}
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 18397
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   - {fileID: 9133926986663599165}
   StringsBanks:
   - {fileID: 6960026625251792831}
-  stringsBankWriteTime: 637514093212593264
+  stringsBankWriteTime: 637514164709532321
   cacheVersion: 5
 --- !u!114 &636422654424995719
 MonoBehaviour:
@@ -205,12 +205,52 @@ MonoBehaviour:
   - {fileID: 9133926986663599165}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 0
+  Length: 100000
 --- !u!114 &1786111915770611696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trail/Atmosphere
+  m_EditorClassIdentifier: 
+  Name: Atmosphere
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &1854079015233631384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trail/Atmosphere
+  m_EditorClassIdentifier: 
+  Name: Atmosphere
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &2269202487175421187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,13 +332,13 @@ MonoBehaviour:
   guid: e6b99dab6fc7de42b18cc07c7d007ffd
   Banks:
   - {fileID: 9133926986663599165}
-  IsStream: 0
+  IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 19575
 --- !u!114 &6618422447107756501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +361,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 4247
 --- !u!114 &6960026625251792831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Space Rocks/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637514093212593264
+  lastModified: 637514164709532321
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -364,7 +404,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 0
+  Length: 1000
 --- !u!114 &8573147249324131048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,7 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Space Rocks/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637514093212518246
+  lastModified: 637514164709437309
   LoadResult: 0
   FileSizes: []
   Exists: 1
