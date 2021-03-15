@@ -103,6 +103,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{bd406c88-7fd2-4aa3-b256-b2174ac2a0b0}">
+		<property name="volume">
+			<value>-10</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{af247932-fb11-4441-8089-6ab5c9e89b45}</destination>
 		</relationship>
@@ -227,10 +230,10 @@
 	<object class="MixerBusFader" id="{3054dc13-6836-4a8d-95fc-05a36bb1fd3e}" />
 	<object class="SpatialiserEffect" id="{250682f1-f8fa-4757-9b27-3366b0fd4d26}">
 		<property name="minimumDistance">
-			<value>10</value>
+			<value>6</value>
 		</property>
 		<property name="maximumDistance">
-			<value>200</value>
+			<value>800</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{7e17a08d-d82c-42d2-ac36-0c0971a4120d}" />
