@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2612906423125320633}
   - component: {fileID: 5693094662313314762}
   - component: {fileID: 7090772397768836595}
+  - component: {fileID: 7286640479328667093}
   m_Layer: 0
   m_Name: PrototypeAsteroid
   m_TagString: target
@@ -181,3 +182,15 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7286640479328667093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395693587880950635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb666f16a6ffb354a9b98d9904ac7c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
