@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Analytics;
+using Random = UnityEngine.Random;
 
 public struct Data
 {
@@ -13,6 +15,17 @@ public struct Data
     public string VelInfinite;
     public string Magnitude;
     public string EstimatedDiameter;
+
+    public Data(string v1, string v2, string v3, string v4, string v5, string v6, string v7)
+    {
+        Name = v1;
+        CloseApproach = v2;
+        NominalDistance = v3;
+        RelativeVel = v4;
+        VelInfinite = v5;
+        Magnitude = v6;
+        EstimatedDiameter = v7;
+    }
 }
 
 public class AsteroidSpawner : MonoBehaviour
@@ -22,10 +35,20 @@ public class AsteroidSpawner : MonoBehaviour
     public List<Data> PotentialRocks = new List<Data>();
     [SerializeField] private string filename;
 
+    private List<GameObject> activeAsteroids = new List<GameObject>();
+
+    public List<GameObject> ActiveAsteroids => activeAsteroids;
+
+
     private void Awake()
     {
         FetchData();
-        InvokeRepeating("SpawnAsteroid", 1, 5);
+        InvokeRepeating("SpawnAsteroid", 0.1f, 5);
+    }
+
+    private void Start()
+    {
+     
     }
 
     void SpawnAsteroid() 
@@ -33,13 +56,13 @@ public class AsteroidSpawner : MonoBehaviour
         //Should be a better way to do this
         int randomSelection = Random.Range(0, PotentialRocks.Count - 1);
         Data selectedData = PotentialRocks[randomSelection];
+//        print(selectedData.Name);
 
-        GameObject newRock = Instantiate(Asteroid, transform.position, new Quaternion());
+        GameObject newRock = Instantiate(Asteroid, GetSpawnPos(), new Quaternion());
+        activeAsteroids.Add(newRock);
         var outlineData = newRock.GetComponent<OutlineDistanceFinder>();
         outlineData.endPoint = earth;
         
-        
-        newRock.AddComponent<AsteroidData>();
         AsteroidData rockData = newRock.GetComponent<AsteroidData>();
         float randX = Random.Range(0f, 1000f);
         float randY = Random.Range(0f, 1000f);
@@ -50,7 +73,10 @@ public class AsteroidSpawner : MonoBehaviour
         rockData.estimatedDiameter = selectedData.EstimatedDiameter;
         rockData.velocity = selectedData.RelativeVel;
 
-        newRock.GetComponent<Rigidbody>().AddForce(randX,randY,randZ);
+        Vector3 forceDir = earth.transform.position - transform.position;
+        forceDir = Quaternion.Euler(Random.Range(-45, 45), Random.Range(-45, 45), Random.Range(-45, 45)) * forceDir;
+         newRock.GetComponent<Asteroid>().forceDir = forceDir;
+        newRock.GetComponent<Rigidbody>().AddForce(forceDir * Random.Range(4.0f, 10.0f));
         newRock.AddComponent<Asteroid>();
         PotentialRocks.Remove(selectedData);
     }
@@ -68,7 +94,6 @@ public class AsteroidSpawner : MonoBehaviour
         int i = 0;
         while (!endOfFile)
         {
-            Data entry = new Data();
             string dataString = streamreader.ReadLine();
             if (dataString == null)
             {
@@ -77,8 +102,8 @@ public class AsteroidSpawner : MonoBehaviour
             }
 
             var dataValues = dataString.Split(',');
-            print(dataValues[0] + " " + dataValues[1] + " " + dataValues[2] + " " + dataValues[3] 
-                + " " + dataValues[4] + " " + dataValues[5] + " " + dataValues[6]);
+
+            Data entry = new Data(dataValues[0],dataValues[1], dataValues[2],dataValues[3],dataValues[4],dataValues[5],dataValues[6]);
 
             i++;
             if (i <= 2)
@@ -93,5 +118,17 @@ public class AsteroidSpawner : MonoBehaviour
             entry.EstimatedDiameter = dataValues[6];
             PotentialRocks.Add(entry);
         }
+    }
+
+    Vector3 GetSpawnPos()
+    {
+        float radius = Random.Range(110.0f, 130.0f);
+        float min = 0.0f;
+        float angle = Random.Range(0, 90.0f);
+        Debug.Log(angle);
+        angle += 135.0f;
+        float x = radius * Mathf.Sin(angle* Mathf.Deg2Rad);
+        float z = radius * Mathf.Cos(angle* Mathf.Deg2Rad);
+        return new Vector3(x, 0.0f, z);
     }
 }
