@@ -120,7 +120,7 @@ public class CameraTransition : MonoBehaviour
         timescale = 0;
         swappingCameras = true;
         backupCamera.enabled = true;
-        activeCamera.enabled = false;
+        activeCamera = backupCamera;
     }
 
     private void ApplyNewCameras()
