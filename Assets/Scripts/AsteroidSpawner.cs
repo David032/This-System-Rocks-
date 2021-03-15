@@ -84,8 +84,8 @@ public class AsteroidSpawner : MonoBehaviour
             }
 
             var dataValues = dataString.Split(',');
-            print(dataValues[0] + " " + dataValues[1] + " " + dataValues[2] + " " + dataValues[3] 
-                + " " + dataValues[4] + " " + dataValues[5] + " " + dataValues[6]);
+            // print(dataValues[0] + " " + dataValues[1] + " " + dataValues[2] + " " + dataValues[3] 
+            //     + " " + dataValues[4] + " " + dataValues[5] + " " + dataValues[6]);
             Data entry = new Data(dataValues[0],dataValues[1], dataValues[2],dataValues[3],dataValues[4],dataValues[5],dataValues[6]);
 
             i++;

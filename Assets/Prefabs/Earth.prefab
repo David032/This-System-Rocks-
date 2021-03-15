@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 7846826091700699725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 265387012828903021}
   m_Father: {fileID: 0}
@@ -129,7 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filename: worldcities.csv
-  minPopulation: 10000
+  minPopulation: 1000000
+  explo: {fileID: 2686030039304079802, guid: ca2242033197fb5458f1849f5cbc9fd9, type: 3}
+  reference: {fileID: 0}
 --- !u!135 &7276231469399558790
 SphereCollider:
   m_ObjectHideFlags: 0
