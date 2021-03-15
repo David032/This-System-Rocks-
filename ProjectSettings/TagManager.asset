@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Earth
   - AsteroidController
+  - target
   layers:
   - Default
   - TransparentFX
