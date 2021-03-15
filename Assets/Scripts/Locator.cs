@@ -28,6 +28,14 @@ public class Locator : MonoBehaviour
         get => missileSpawner;
     }
     
+    [SerializeField]
+    private AsteroidSpawner asteroidSpawner;
+
+    public AsteroidSpawner AsteroidSpawner
+    {
+        get => asteroidSpawner;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {

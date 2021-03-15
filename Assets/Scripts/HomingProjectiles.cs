@@ -54,6 +54,13 @@ public class HomingProjectiles : MonoBehaviour
 
     private void OnCollisionEnter(Collision col) 
     {
-        //Destroy(gameObject);
+        if (col.gameObject.tag == "Asteroid")
+        {
+            var activeasteroids = Locator.Instance.AsteroidSpawner.ActiveAsteroids;
+            if(activeasteroids.Contains(col.gameObject))
+                activeasteroids.Remove(col.gameObject);
+            Destroy(col.gameObject); 
+        }
+        Destroy(gameObject);
     }
 }
