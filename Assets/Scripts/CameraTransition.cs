@@ -31,7 +31,6 @@ public class CameraTransition : MonoBehaviour
         earth = GameObject.FindWithTag("Earth");
         for (int i = 0; i < cameras.Count; i++)
         {
-            cameras[i].transform.LookAt(earth.transform.position, Vector3.up);
             cameras[i].enabled = false;
             cameras[i].GetComponent<AudioListener>().enabled = false;
             
@@ -78,8 +77,8 @@ public class CameraTransition : MonoBehaviour
             var dest = selectedCamera.transform;
             
             //Just move to the location, if already moving use the stopPoint for lerping
-            moveCam.position = Vector3.Lerp(moveCam.transform.position, dest.position, timescale);
-            backupCamera.transform.LookAt(earth.transform, Vector3.up);
+            moveCam.position = Vector3.Lerp(moveCam.position, dest.position, timescale);
+            moveCam.rotation = Quaternion.Lerp(moveCam.rotation, dest.rotation, timescale);
         }
         if(Vector3.Distance(backupCamera.transform.position, selectedCamera.transform.position) <= 5f)
         {
