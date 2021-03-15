@@ -26,12 +26,13 @@ public class CameraTransition : MonoBehaviour
     private GameObject earth;
     private Vector3 stopPoint;
     private float multiplier = 0.2f;
+    
     void Start()
     {
         earth = GameObject.FindWithTag("Earth");
         for (int i = 0; i < cameras.Count; i++)
         {
-            cameras[i].enabled = false;
+            cameras[i].gameObject.SetActive(false);
             cameras[i].GetComponent<AudioListener>().enabled = false;
             
             if (!cameras[i].CompareTag("MainCamera")) continue;
@@ -54,6 +55,8 @@ public class CameraTransition : MonoBehaviour
             var index = cameraIndex - 1;
             if (index < 0)
                 index = cameras.Count - 1;
+            cameras[cameraIndex].gameObject.SetActive(false);
+
             cameraIndex = index;
             UpdateCameras();
         }
@@ -62,6 +65,7 @@ public class CameraTransition : MonoBehaviour
             var index = cameraIndex + 1;
             if (index >= cameras.Count)
                 index = 0;
+            cameras[cameraIndex].gameObject.SetActive(false);
             cameraIndex = index;
             UpdateCameras();
         }
@@ -105,6 +109,7 @@ public class CameraTransition : MonoBehaviour
         var go = Instantiate(new GameObject(), transform.position, transform.rotation);
         go.AddComponent<Camera>();
         backupCamera = go.GetComponent<Camera>();
+        go.name = "Backup Camera";
         
         backupCamera.farClipPlane = 2000;
         backupCamera.enabled = false;
@@ -127,6 +132,7 @@ public class CameraTransition : MonoBehaviour
     {
         //Enable the active camera, disable the backup camera.
         backupCamera.enabled = false;
+        cameras[cameraIndex].gameObject.SetActive(true);
         activeCamera = selectedCamera;
         activeCamera.enabled = true;
         stopPoint = Vector3.zero;
