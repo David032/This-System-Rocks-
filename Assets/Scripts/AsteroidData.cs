@@ -17,6 +17,6 @@ public class AsteroidData : MonoBehaviour //For storing data of real objects tha
         viewer.CloseApproach.text = distanceFromEarth + " LD";
         viewer.Diameter.text = estimatedDiameter;
         //FX here?
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 }

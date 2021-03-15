@@ -28,4 +28,10 @@ public class Asteroid : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    void OnMouseDown()
+    {
+        Locator.Instance.MissileSpawner.SpawnMissile(gameObject);
+    }
+    
 }
