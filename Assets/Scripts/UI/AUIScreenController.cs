@@ -11,7 +11,7 @@ using UnityEngine.UI;
 /// You should instead inherit from the children UIWindowController or UIPanelController.
 /// </summary>
 /// <typeparam name="TProps"></typeparam>
-public abstract class UIScreenController<TProps> : MonoBehaviour, IUIScreenController where TProps : IUIScreenProperties
+public abstract class AUIScreenController<TProps> : MonoBehaviour, IUIScreenController where TProps : IUIScreenProperties
 {
     /// <summary>
     /// Is this screen visible?
@@ -28,18 +28,18 @@ public abstract class UIScreenController<TProps> : MonoBehaviour, IUIScreenContr
     /// </summary>
     protected TProps Properties { get; set; }
 
-    public void Show(IUIScreenPanelProperties properties = null)
+    public void Show(IUIScreenProperties properties = null)
     {
         if (properties != null)
         {
-            if (properties is TProps props)
+            if (properties is TProps)
             {
-                SetProperties(props);
+                SetProperties((TProps)properties);
             }
             else
             {
-                Debug.LogError("Properties passed are wrong type. (" + props.GetType() + 
-                               " Instead of (" +Properties.GetType());
+                Debug.LogError("Properties passed are wrong type. (" + properties.GetType() + 
+                               " Instead of (" + typeof (TProps));
                 return;
             }
         }
@@ -60,7 +60,10 @@ public abstract class UIScreenController<TProps> : MonoBehaviour, IUIScreenContr
 
     public void Hide(bool animateOut = true)
     {
-        //TODO: URGENT - FINISH IMPLEMENTING THIS
+        //TODO: Play animation using animateOut
+        OnTransitionOutFinished();
+        WhileHiding();
+
     }
 
     /// <summary>

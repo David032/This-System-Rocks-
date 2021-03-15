@@ -12,18 +12,26 @@ using UnityEngine;
 
 public interface IUIScreenProperties { }
 
-public interface IUIScreenPanelProperties : IUIScreenProperties
+
+public interface IUIPanelController : IUIScreenController
+{
+     //TODO enum for sorting priority of panels
+}
+public interface IUIPanelProperties : IUIScreenProperties
 {
      IUIScreenProperties Priority { get; set; }
 }
 
-
-public interface IWindowScreenProperties : IUIScreenProperties
+public interface IUIWindowController : IUIScreenController
 {
      // For "Dialogs", called "Popups" in this project.
      bool isPopup { get; set; }
 }
 
+public interface IUIWindowProperties : IUIScreenProperties
+{
+     bool IsPopup { get; }
+}
 /// <summary>
 /// Must be implemented by all Screens directly or indirectly
 /// </summary>
@@ -32,7 +40,7 @@ public interface IUIScreenController
      string ScreenID { get; set;}
      bool IsVisible { get; }
 
-     void Show(IUIScreenPanelProperties properties = null);
+     void Show(IUIScreenProperties properties = null);
      void Hide(bool animate = true);
      
      Action<IUIScreenController>  InTransitionFinished { get; set; }

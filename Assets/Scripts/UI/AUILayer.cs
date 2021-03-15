@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class UILayerController<TScreen> : MonoBehaviour where TScreen : IUIScreenController
+public abstract class AUILayer<TScreen> : MonoBehaviour where TScreen : IUIScreenController
 {
     protected Dictionary<string, TScreen> registeredScreens;
     
