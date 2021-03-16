@@ -266,6 +266,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-1477485536572851658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trail/Atmosphere
+  m_EditorClassIdentifier: 
+  Name: Atmosphere
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-989234742657934979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +349,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -8083351553622930128}
+  - {fileID: -1477485536572851658}
   MinDistance: 6
   MaxDistance: 800
   Length: 18397
@@ -366,7 +386,7 @@ MonoBehaviour:
   - {fileID: 9133926986663599165}
   StringsBanks:
   - {fileID: 6960026625251792831}
-  stringsBankWriteTime: 637514340793754760
+  stringsBankWriteTime: 637514935887595280
   cacheVersion: 5
 --- !u!114 &185891102916204201
 MonoBehaviour:
@@ -680,7 +700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Space Rocks/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637514340793754760
+  lastModified: 637514935887595280
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -786,7 +806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Space Rocks/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637514340793404697
+  lastModified: 637514935888362708
   LoadResult: 0
   FileSizes: []
   Exists: 1
