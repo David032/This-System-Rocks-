@@ -26,9 +26,13 @@ public class CameraTransition : MonoBehaviour
     private GameObject earth;
     private Vector3 stopPoint;
     private float multiplier = 0.2f;
-    
+
+    FMOD.Studio.EventInstance whoosh;
+
     void Start()
     {
+        whoosh = FMODUnity.RuntimeManager.CreateInstance("event:/atmos/whoosh");
+
         earth = GameObject.FindWithTag("Earth");
         for (int i = 0; i < cameras.Count; i++)
         {
@@ -59,6 +63,7 @@ public class CameraTransition : MonoBehaviour
 
             cameraIndex = index;
             UpdateCameras();
+            whoosh.start();
         }
         if (Input.GetKeyDown("e"))
         {
@@ -68,6 +73,7 @@ public class CameraTransition : MonoBehaviour
             cameras[cameraIndex].gameObject.SetActive(false);
             cameraIndex = index;
             UpdateCameras();
+            whoosh.start();
         }
     }
 

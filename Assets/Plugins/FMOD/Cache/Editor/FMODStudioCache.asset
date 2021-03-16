@@ -40,6 +40,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-8083351553622930128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trail/Atmosphere
+  m_EditorClassIdentifier: 
+  Name: Atmosphere
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-7134476641066702566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +246,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-2066133168419140892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trail/Atmosphere
+  m_EditorClassIdentifier: 
+  Name: Atmosphere
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-989234742657934979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,9 +329,9 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 1347047777921726514}
-  MinDistance: 10
-  MaxDistance: 200
+  - {fileID: -8083351553622930128}
+  MinDistance: 6
+  MaxDistance: 800
   Length: 18397
 --- !u!114 &11400000
 MonoBehaviour:
@@ -320,12 +360,13 @@ MonoBehaviour:
   - {fileID: -7134476641066702566}
   - {fileID: 4301919283866969999}
   - {fileID: -852370574268420986}
+  - {fileID: 6549773925800918486}
   EditorParameters: []
   MasterBanks:
   - {fileID: 9133926986663599165}
   StringsBanks:
   - {fileID: 6960026625251792831}
-  stringsBankWriteTime: 637514142087837389
+  stringsBankWriteTime: 637514340793754760
   cacheVersion: 5
 --- !u!114 &185891102916204201
 MonoBehaviour:
@@ -539,6 +580,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4400
+--- !u!114 &6549773925800918486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Whoosh
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Whoosh
+  guid: e72c826b2bb53542bddc905adcc19853
+  Banks:
+  - {fileID: 9133926986663599165}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 8000
 --- !u!114 &6618422447107756501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,11 +660,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Space Rocks/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637514142087837389
+  lastModified: 637514340793754760
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1286
+    Value: 1324
   Exists: 1
 --- !u!114 &7866563898529195852
 MonoBehaviour:
@@ -702,7 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Space Rocks/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637514226876747390
+  lastModified: 637514340793404697
   LoadResult: 0
   FileSizes: []
   Exists: 1
