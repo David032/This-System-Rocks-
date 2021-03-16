@@ -69,6 +69,8 @@ public class HomingProjectiles : MonoBehaviour
             var activeasteroids = Locator.Instance.AsteroidSpawner.ActiveAsteroids;
             if(activeasteroids.Contains(col.gameObject))
                 activeasteroids.Remove(col.gameObject);
+            var data = col.gameObject.GetComponent<AsteroidData>();
+            Locator.Instance.GameEvents.asteroidDestroyedMsg?.Invoke(data);
             Destroy(col.gameObject); 
         }
         Destroy(gameObject);

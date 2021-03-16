@@ -38,8 +38,7 @@ public class AsteroidSpawner : MonoBehaviour
     private List<GameObject> activeAsteroids = new List<GameObject>();
 
     public List<GameObject> ActiveAsteroids => activeAsteroids;
-
-
+    
     private void Awake()
     {
         FetchData();
@@ -79,6 +78,9 @@ public class AsteroidSpawner : MonoBehaviour
         newRock.GetComponent<Rigidbody>().AddForce(forceDir * Random.Range(4.0f, 10.0f));
         newRock.AddComponent<Asteroid>();
         PotentialRocks.Remove(selectedData);
+        
+        Locator.Instance.GameEvents.asteroidSpawnMsg?.Invoke(activeAsteroids.Count);
+
     }
 
     void FetchData() 

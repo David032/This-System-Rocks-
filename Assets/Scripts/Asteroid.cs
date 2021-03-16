@@ -36,6 +36,7 @@ public class Asteroid : MonoBehaviour
             if(activeasteroids.Contains(gameObject))
                 activeasteroids.Remove(gameObject);
             
+            Locator.Instance.GameEvents.asteroidDestroyedMsg?.Invoke(GetComponent<AsteroidData>());
             Destroy(gameObject);
         }
     }

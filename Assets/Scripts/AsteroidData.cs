@@ -18,5 +18,7 @@ public class AsteroidData : MonoBehaviour //For storing data of real objects tha
         viewer.Diameter.text = estimatedDiameter;
         //FX here?
         //Destroy(this.gameObject);
+        
+        Locator.Instance.GameEvents.asteroidClickMsg?.Invoke(viewer);
     }
 }
